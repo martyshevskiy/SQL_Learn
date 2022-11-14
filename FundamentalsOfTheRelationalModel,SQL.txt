@@ -1,0 +1,23 @@
+/*
+At the end of the year, the price of all books in stock is recalculated and reduced by 30%. 
+Write a SQL query that selects titles, authors, quantities from a table of books and calculates new book prices. 
+Name the new price column new_price, rounding the price to 2 decimal places.
+*/
+
+ SELECT title, author, amount,
+    ROUND((price*0.7),2) AS new_price
+ FROM book;
+
+ /*
+ When analyzing book sales, it turned out that the most popular are the books of Mikhail Bulgakov, 
+ in second place are the books of Sergei Yesenin. 
+ Based on this, they decided to raise the price of Bulgakov's books by 10%, and the price of Yesenin's books - by 5%. 
+ Write a query where to include the author, book title and new price, name the last column new_price. 
+ Round the value to two decimal places.
+ */
+
+ SELECT author, title,
+ROUND(IF(author='Булгаков М.А.', price*1.10, 
+         IF(author='Есенин С.А.', price*1.05, price)),2) AS new_price
+FROM book;
+
