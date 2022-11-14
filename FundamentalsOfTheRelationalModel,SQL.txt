@@ -7,7 +7,7 @@ Name the new price column new_price, rounding the price to 2 decimal places.
  SELECT title, author, amount,
     ROUND((price*0.7),2) AS new_price
  FROM book;
-
+---------------------------------------
  /*
  When analyzing book sales, it turned out that the most popular are the books of Mikhail Bulgakov, 
  in second place are the books of Sergei Yesenin. 
@@ -20,4 +20,19 @@ Name the new price column new_price, rounding the price to 2 decimal places.
 ROUND(IF(author='Булгаков М.А.', price*1.10, 
          IF(author='Есенин С.А.', price*1.05, price)),2) AS new_price
 FROM book;
+---------------------------------------
+/*
+Print the author, title, and price of those books with less than 10.
+*/
 
+SELECT author, title, price FROM book
+WHERE amount<10;
+---------------------------------------
+/*
+Print the title, author, price, and quantity of all books whose price is less than 500 or greater than 600, 
+and the cost of all copies of these books is greater than or equal to 5000.
+*/
+
+SELECT title, author, price, amount FROM book
+WHERE (price<500 OR price>600) AND price*amount>=5000;
+---------------------------------------
