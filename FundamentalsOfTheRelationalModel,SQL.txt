@@ -36,3 +36,23 @@ and the cost of all copies of these books is greater than or equal to 5000.
 SELECT title, author, price, amount FROM book
 WHERE (price<500 OR price>600) AND price*amount>=5000;
 ---------------------------------------
+
+/* Output the title and authors of those books whose prices belong to the interval 
+from 540.50 to 800 (including borders), and the number is either 2, or 3, or 5, or 7.
+*/
+
+SELECT title, author 
+FROM book
+WHERE (price BETWEEN 540.50 AND 800) and (amount IN (2, 3, 5, 7));
+---------------------------------------
+
+/* Output the author and title of books, 
+the number of which belongs to the interval from 2 to 14 (including borders). 
+Sort the information first by authors (in reverse alphabetical order), 
+and then by book titles (alphabetically).
+*/
+
+SELECT author, title FROM book
+WHERE amount BETWEEN 2 AND 14
+ORDER BY author DESC, title;
+---------------------------------------
