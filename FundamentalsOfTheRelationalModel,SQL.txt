@@ -56,3 +56,13 @@ SELECT author, title FROM book
 WHERE amount BETWEEN 2 AND 14
 ORDER BY author DESC, title;
 ---------------------------------------
+
+/*Output the title and author of those books whose title consists of two or more words, 
+and the author's initials contain the letter "C". 
+Sort information alphabetically by book title.
+*/
+
+SELECT title, author FROM book
+WHERE title LIKE "_% _%" AND author LIKE "%С.%"
+ORDER BY title;
+---------------------------------------
